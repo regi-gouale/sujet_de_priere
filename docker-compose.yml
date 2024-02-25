@@ -5,10 +5,10 @@ services:
     image: httpd:latest
     container_name: sujet_de_priere
     volumes:
-      - ./index.html:/usr/local/apache2/htdocs/index.html
+      - .:/usr/local/apache2/htdocs/
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sujet_de_priere.rule=Host(`sujet-de-priere.egliseiccaura.com`)"
+      - "traefik.http.routers.sujet_de_priere.rule=Host(`sujet-de-priere.gouale.com`)"
       - "traefik.http.routers.sujet_de_priere.entrypoints=websecure"
     restart: always
     networks:
