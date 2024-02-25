@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  sujet_de_priere:
+    image: httpd:latest
+    container_name: sujet_de_priere
+    volumes:
+      - ./index.html:/usr/local/apache2/htdocs/index.html
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sujet_de_priere.rule=Host(`sujet-de-priere.egliseiccaura.com`)"
+      - "traefik.http.routers.sujet_de_priere.entrypoints=websecure"
+    restart: always
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
